@@ -14,7 +14,9 @@ class Ioc {
 
   /// Registers a new service within the IOC.
   /// class MyService {}
+  /// ```dart
   /// ioc.bind(namespace: 'Mineral/Services/MyService', MyService);
+  /// ```
   void bind<T> ({ required String namespace, required T service }) {
     if (_services.containsKey(namespace)) {
       throw ServiceAlreadyRegistered();
@@ -24,14 +26,18 @@ class Ioc {
   }
 
   /// Deletes a service registered in the
+  /// /// ```dart
   /// ioc.remove('Mineral/Services/MyService');
+  /// ```
   void remove (String namespace) {
     _services.remove(namespace);
   }
 
   /// Resolve the service instance from its namespace
+  /// /// ```dart
   /// final myService = ioc.singleton('Mineral/Services/MyService');
   /// final myService = ioc.singleton<MyService>('Mineral/Services/MyService');
+  /// ```
   T singleton<T extends dynamic> (String namespace) {
     return Ioc._instance._services[namespace] as T;
   }
