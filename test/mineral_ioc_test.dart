@@ -1,4 +1,5 @@
 import 'package:mineral_ioc/ioc.dart';
+import 'package:mineral_ioc/src/exceptions/service_already_registered.dart';
 import 'package:test/test.dart';
 
 class MyService {}
@@ -11,6 +12,14 @@ void main() {
 
     expect(ioc.services.keys.first, equals(namespace));
     expect(ioc.services.length, equals(1));
+  });
+
+  test('can\'t registered two services with the same namespace', () {
+    try {
+      ioc.bind(namespace: namespace, service: MyService);
+    } on Exception catch(error) {
+      expect(error.runtimeType, equals(ServiceAlreadyRegistered));
+    }
   });
 
   test('can get registered services', () {

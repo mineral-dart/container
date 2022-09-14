@@ -1,2 +1,3 @@
-A sample command-line application with an entrypoint in `bin/`, library code
-in `lib/`, and example unit test in `test/`.
+# 🧱 Container
+
+The Container package is one of the core components of the Mineral framework, in fact it registers the entire application through its IOC.
