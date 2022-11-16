@@ -1,3 +1,4 @@
+/// This package is one of the core components of the Mineral framework, in fact it registers the entire application through its IOC.
 library ioc;
 
 import 'src/ioc.dart';
